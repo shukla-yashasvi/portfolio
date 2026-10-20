@@ -16,6 +16,7 @@ export type Project = {
   name: string;
   href: string;
   image: StaticImageData;
+  featured?: boolean;
 };
 
 export const projects: Project[] = [
@@ -23,23 +24,25 @@ export const projects: Project[] = [
     name: "CodeForge",
     href: "https://codeforge-theta.vercel.app/",
     image: codeforge,
+    featured: true,
+  },
+  {
+    name: "ModelForge",
+    href: "https://modelforge-five.vercel.app/",
+    image: mlops,
+    featured: true,
   },
   {
     name: "TalentForge",
     href: "https://talentforge-one.vercel.app/",
     image: resume,
+    featured: true,
   },
   {
     name: "Ames House Price Predictor",
     href: "https://ames-house-price-predict.netlify.app/",
     image: ames,
   },
-  {
-    name: "ModelForge",
-    href: "https://modelforge-five.vercel.app/",
-    image: mlops,
-  },
-
   {
     name: "The Chronicles",
     href: "https://the-chronicles.vercel.app/",

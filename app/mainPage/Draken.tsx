@@ -23,7 +23,7 @@ const Draken = () => {
 
   useEffect(() => {
     const handleScroll = () => {
-      const sections = ["abt", "exp", "skills", "pro"];
+      const sections = ["abt", "skills", "pro"] as const;
 
       sections.forEach((id) => {
         const element = document.getElementById(id);
@@ -35,7 +35,7 @@ const Draken = () => {
           rect.top <= window.innerHeight * 0.4 &&
           rect.bottom >= window.innerHeight * 0.4
         ) {
-          dispatch({ type: id as "abt" | "exp" | "skills" | "pro", payload: id });
+          dispatch({ type: id, payload: id });
         }
       });
     };
@@ -48,30 +48,30 @@ const Draken = () => {
 
   return (
     <Grid container spacing={1}>
-      <Grid item xl={6} md={6} lg={6} sm={12} className="relative">
-        <div className="static lg:fixed">
+      <Grid item xl={6} md={6} lg={6} sm={12} xs={12} className="relative">
+        <div className="static min-[900px]:fixed min-[900px]:w-1/2">
           <Box className="w-full md:p-14 p-4 flex flex-col items-start">
             <h1 className="text-white font-heading">Yashasvi Shukla.</h1>
             <br />
             <h3 className="text-white font-heading">
-              Full Stack Engineer building scalable systems and AI
+              Full-Stack Engineer focused on backend systems and applied AI.
             </h3>
             <p style={{ color: "#7B899D" }}>
-              I ship clean, scalable products with strong engineering
-              fundamentals.
+              I build software from API design and data modeling to execution
+              workflows and deployment.
             </p>
           </Box>
           <Box className="flex flex-col sm:content-between content-start">
-            <Box className="my-10 w-full p-14 flex-col sm:block">
+            <Box className="my-10 w-full md:p-14 p-4 flex-col sm:block">
               <About />
               <Skills />
               <Project />
 
               <br></br><br></br><br></br><br></br>
 
-              <Box className="my-30 w-full md:p-2 p-4 flex gap-6 mb-10">
+              <Box className="w-full md:p-2 p-4 flex gap-6 mb-10">
           <a
-            href="https://github.com/yashasvi-shukla-me"
+            href="https://github.com/shukla-yashasvi"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"
@@ -124,6 +124,7 @@ const Draken = () => {
         md={6}
         lg={6}
         sm={12}
+        xs={12}
         style={{ width: "100%", padding: "0px" }}
       >
         <span className="md:p-14 md:hidden block p-6 text-white cursor-pointer font-bold">
@@ -131,48 +132,18 @@ const Draken = () => {
         </span>
         <Box id="abt" className={`${sectionPadding} flex flex-col items-start`}>
           <p style={{ color: "#7B899D" }} className="p-2">
-            I completed my schooling in Lucknow, then my graduation and masters from Delhi NCR.
-             I am strengthening my
-            foundations in DSA, distributed backend design and applied machine
-            learning while building production-oriented platforms.
+            I completed my schooling in Lucknow and studied computer science in
+            Delhi-NCR. My interests lie in backend engineering, distributed
+            systems and applied machine learning.
           </p>
           <p style={{ color: "#7B899D" }} className="p-2">
-            I am a Full-Stack Engineer building scalable web platforms and AI
-            driven systems.
+            I enjoy understanding how systems work beneath the interface, from
+            data modeling and API design to execution pipelines and deployment.
           </p>
           <p style={{ color: "#7B899D" }} className="p-2">
-            Outside of work, I enjoy basketball, chess, reading and learning
-            guitar.
+            Outside programming, I enjoy basketball, chess, reading and
+            learning guitar.
           </p>
-        </Box>
-
-        <span className="md:p-14 md:hidden block p-6 text-white cursor-pointer font-bold">
-          Experience
-        </span>
-        <Box id="exp" className={sectionPadding}>
-          <div className="flex flex-col gap-4 text-white">
-            <div className="flex flex-wrap items-baseline gap-x-3 gap-y-1">
-              <p className="font-bold">Bachelors &amp; Masters · Developer</p>
-              <p style={{ color: "#7B899D" }} className="text-sm">
-                2019 – 2026
-              </p>
-            </div>
-            <p style={{ color: "#7B899D" }} className=" leading-relaxed max-w-xl">
-              Building full-stack and ML platforms - from online judges and
-              resume intelligence to litigation and case management software for legal firms, resource management 
-              software for businesses - with a focus on clean and easy customer experience and
-              architecture 
-            </p>
-            <a
-              href="https://github.com/yashasvi-shukla-me?tab=repositories"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="inline-flex items-center gap-1  font-bold text-white w-fit"
-            >
-              View repositories
-              <ArrowOutwardIcon sx={{ color: "#fff", fontSize: 16 }} />
-            </a>
-          </div>
         </Box>
 
         <a href="/Yashasvi_Shukla_Resume.pdf" target="_blank">
@@ -196,32 +167,37 @@ const Draken = () => {
               </div>
             </div>
             <div>
-              Backend &amp; APIs
+              Frontend
               <div className="flex gap-2 p-1 my-3 flex-wrap">
                 <Button variant="outlined">React</Button>
+              </div>
+            </div>
+            <div>
+              Backend &amp; APIs
+              <div className="flex gap-2 p-1 my-3 flex-wrap">
                 <Button variant="outlined">FastAPI</Button>
                 <Button variant="outlined">Node.js</Button>
                 <Button variant="outlined">Express</Button>
-                <Button variant="outlined">Docker</Button>
                 <Button variant="outlined">JWT</Button>
               </div>
             </div>
             <div>
-              Databases &amp; MLOps
+              Databases &amp; Infrastructure
               <div className="flex gap-2 p-1 my-3 flex-wrap">
                 <Button variant="outlined">MongoDB</Button>
                 <Button variant="outlined">PostgreSQL</Button>
                 <Button variant="outlined">MySQL</Button>
-                <Button variant="outlined">MLflow</Button>
-                <Button variant="outlined">Prometheus</Button>
+                <Button variant="outlined">Docker</Button>
                 <Button variant="outlined">AWS</Button>
+                <Button variant="outlined">Prometheus</Button>
               </div>
             </div>
             <div>
-              Other
+              Machine Learning &amp; Tooling
               <div className="flex gap-2 p-1 my-3 flex-wrap">
                 <Button variant="outlined">Machine Learning</Button>
                 <Button variant="outlined">NLP</Button>
+                <Button variant="outlined">MLflow</Button>
                 <Button variant="outlined">Postman</Button>
               </div>
             </div>
@@ -239,7 +215,7 @@ const Draken = () => {
 
         {/* <Box className="my-30 w-full md:p-14 p-4 flex gap-6">
           <a
-            href="https://github.com/yashasvi-shukla-me"
+            href="https://github.com/shukla-yashasvi"
             target="_blank"
             rel="noopener noreferrer"
             aria-label="GitHub"

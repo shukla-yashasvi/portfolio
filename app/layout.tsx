@@ -10,9 +10,9 @@ const plusJakarta = Plus_Jakarta_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Yashasvi Shukla | Full Stack Engineer",
+  title: "Yashasvi Shukla | Full-Stack Engineer",
   description:
-    "Full Stack Engineer building scalable web platforms and AI-driven systems. Portfolio and projects in React, Node.js, FastAPI, and ML.",
+    "Full-Stack Engineer focused on backend systems and applied AI. Portfolio and projects in React, Node.js, FastAPI and ML.",
 };
 
 export default function RootLayout({

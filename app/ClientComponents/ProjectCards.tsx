@@ -3,7 +3,7 @@
 import { Box } from "@mui/material";
 import ArrowOutwardIcon from "@mui/icons-material/ArrowOutward";
 import Image from "next/image";
-import { projects } from "../data/projects";
+import { projects, Project } from "../data/projects";
 
 const cardHover = {
   "&:hover": {
@@ -14,10 +14,13 @@ const cardHover = {
   transition: "background-color 0.2s, transform 0.2s, box-shadow 0.2s",
 };
 
-export default function ProjectCards() {
+const featuredProjects = projects.filter((project) => project.featured);
+const otherProjects = projects.filter((project) => !project.featured);
+
+function ProjectGrid({ items }: { items: Project[] }) {
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-      {projects.map((project) => (
+      {items.map((project) => (
         <a
           key={project.name}
           href={project.href}
@@ -32,8 +35,7 @@ export default function ProjectCards() {
             <Image
               src={project.image}
               alt={project.name}
-              className="w-full object-cover"
-              style={{ height: "120px" }}
+              className="w-full aspect-video object-cover object-top"
             />
             <div className="p-4 flex items-center gap-1 text-white font-bold text-sm">
               <span>{project.name}</span>
@@ -43,5 +45,17 @@ export default function ProjectCards() {
         </a>
       ))}
     </div>
+  );
+}
+
+export default function ProjectCards() {
+  return (
+    <>
+      <ProjectGrid items={featuredProjects} />
+      <p className="mt-10 mb-4 text-sm font-bold" style={{ color: "#7B899D" }}>
+        Other projects
+      </p>
+      <ProjectGrid items={otherProjects} />
+    </>
   );
 }
